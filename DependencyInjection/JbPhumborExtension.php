@@ -19,6 +19,18 @@ class JbPhumborExtension extends Extension
      */
     public function load(array $configs, ContainerBuilder $container)
     {
+/*        foreach ($configs as &$config) {
+            if (!isset($config['transformations'])) {
+                continue;
+            }
+
+            foreach ($config['transformations'] as $name => &$transformation) {
+                if (!isset($transformation['name'])) {
+                    $transformation['name'] = $name;
+                }
+            }
+        }*/
+
         $config = $this->processConfiguration(new Configuration(), $configs);
         $this->loadConfiguration($container, $config);
 

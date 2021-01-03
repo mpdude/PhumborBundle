@@ -34,6 +34,19 @@ abstract class JbPhumborExtensionTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    public function testMergingConfigurationFiles()
+    {
+        $container = $this->createContainerFromFile(['filter-merge-1', 'filter-merge-2']);
+
+        $this->assertEquals(
+            array(
+                'test_overridden' => array('resize' => array('width'=>200, 'height'=>200)),
+                'test_not_overridden' => array('resize' => array('width'=>100, 'height'=>100))
+            ),
+            $container->getParameter('phumbor.transformations')
+        );
+    }
+
     /**
      * Create container with the current bundle enabled
      *
@@ -56,16 +69,19 @@ abstract class JbPhumborExtensionTest extends \PHPUnit_Framework_TestCase
      * Register a configuration file
      * @see \Jb\Bundle\PhumborBundle\Tests\DependencyInjection\YamlJbPhumborExtensionTest
      *
-     * @param string $file
+     * @param array<string>|string $file
      * @param array $data
      *
      * @return \Symfony\Component\DependencyInjection\ContainerBuilder
      */
-    protected function createContainerFromFile($file, $data = array())
+    protected function createContainerFromFile($files, $data = array())
     {
         $container = $this->createContainer($data);
         $container->registerExtension(new JbPhumborExtension());
-        $this->loadFromFile($container, $file);
+
+        foreach ((array) $files as $file) {
+            $this->loadFromFile($container, $file);
+        }
 
         $container->getCompilerPassConfig()->setOptimizationPasses(array());
         $container->getCompilerPassConfig()->setRemovingPasses(array());
