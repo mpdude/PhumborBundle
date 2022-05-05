@@ -26,9 +26,6 @@
         "twig/extensions": "~1.0",
         "symfony/phpunit-bridge": ">=6.0"
     },
-    "replace": {
-        "jbouzekri/phumbor-bundle": "^2.0"
-    },
     "autoload": {
         "psr-4": {
             "Webfactory\\Bundle\\PhumborBundle\\": "src"
