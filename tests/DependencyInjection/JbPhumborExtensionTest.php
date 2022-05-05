@@ -1,10 +1,10 @@
 <?php
 
-namespace Jb\Bundle\PhumborBundle\Tests\DependencyInjection;
+namespace Webfactory\Bundle\PhumborBundle\Tests\DependencyInjection;
 
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Jb\Bundle\PhumborBundle\DependencyInjection\JbPhumborExtension;
+use Webfactory\Bundle\PhumborBundle\DependencyInjection\JbPhumborExtension;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
 
 /**
@@ -44,7 +44,7 @@ abstract class JbPhumborExtensionTest extends TestCase
     protected function createContainer(array $data = array())
     {
         return new ContainerBuilder(new ParameterBag(array_merge(array(
-            'kernel.bundles'     => array('JbPhumborBundle' => 'Jb\\Bundle\\PhumborBundle\\JbPhumborBundle'),
+            'kernel.bundles'     => array('WebfactoryPhumborBundle' => 'Jb\\Bundle\\PhumborBundle\\WebfactoryPhumborBundle'),
             'kernel.cache_dir'   => __DIR__,
             'kernel.debug'       => false,
             'kernel.environment' => 'test',
@@ -55,7 +55,7 @@ abstract class JbPhumborExtensionTest extends TestCase
 
     /**
      * Register a configuration file
-     * @see \Jb\Bundle\PhumborBundle\Tests\DependencyInjection\YamlJbPhumborExtensionTest
+     * @see \Webfactory\Bundle\PhumborBundle\Tests\DependencyInjection\YamlJbPhumborExtensionTest
      *
      * @param string $file
      * @param array $data

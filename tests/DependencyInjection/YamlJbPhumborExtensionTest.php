@@ -1,6 +1,6 @@
 <?php
 
-namespace Jb\Bundle\PhumborBundle\Tests\DependencyInjection;
+namespace Webfactory\Bundle\PhumborBundle\Tests\DependencyInjection;
 
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;

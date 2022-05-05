@@ -1,6 +1,6 @@
 <?php
 
-namespace Jb\Bundle\PhumborBundle\Transformer\Exception;
+namespace Webfactory\Bundle\PhumborBundle\Transformer\Exception;
 
 /**
  * Phumbor Base Exception

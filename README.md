@@ -1,41 +1,23 @@
 PhumborBundle
 =============
 
-[![Build Status](https://travis-ci.org/jbouzekri/PhumborBundle.svg?branch=master)](https://travis-ci.org/jbouzekri/PhumborBundle)
-[![Code Coverage](https://scrutinizer-ci.com/g/jbouzekri/PhumborBundle/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/jbouzekri/PhumborBundle/?branch=master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/jbouzekri/PhumborBundle/badges/quality-score.png?s=a0a8958b6ab291dc6f867b7df49cf55be590c23d)](https://scrutinizer-ci.com/g/jbouzekri/PhumborBundle/)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/f3668751-012f-4444-9d48-7833e2a420ec/mini.png)](https://insight.sensiolabs.com/projects/f3668751-012f-4444-9d48-7833e2a420ec)
+A Symfony Bundle to use the [PHP Thumbor client](https://github.com/webfactory/phumbor) to generate Thumbor URLs in Symfony Twig templates. 
+Forked from https://github.com/jbouzekri/PhumborBundle.
 
-A bridge for symfony with the [phumbor client from 99designs](https://github.com/99designs/phumbor) to generate thumbor url.
+## Prerequisites
 
-Prerequisites
--------------
+Of course, you must have a [Thumbor server](https://github.com/thumbor/thumbor/wiki) installed and operational.
 
-Of course, you must have a [thumbor server](https://github.com/thumbor/thumbor/wiki) installed and operationnal.
-If not, you can follow the [official installation documentation](https://github.com/thumbor/thumbor/wiki/Installing).
-
-Installation
+## Installation
 ------------
 
-Add `jbouzekri/phumbor-bundle` as a dependency in `composer.json`.
+Add `webfactory/phumbor-bundle` as a dependency in `composer.json`. Then, enable register the `Webfactory\Bundle\PhumborBundle\WebfactoryPhumborBundle`
+class in your Symfony Kernel.
+
+In your config.yml, configure at least the url of your Thumbor server and the secret :
 
 ``` yml
-"jbouzekri/phumbor-bundle": "~1.0"
-```
-
-Enable the bundle in your AppKernel :
-
-``` php
-$bundles = array(
-    ...
-    new Jb\Bundle\PhumborBundle\JbPhumborBundle()
-);
-```
-
-In your config.yml, configure at least the url of your thumbor server and the secret :
-
-``` yml
-jb_phumbor:
+webfactory_phumbor:
     server:
         url: http://localhost
         secret: 123456789
@@ -50,7 +32,7 @@ Quick use case
 You need to resize the image of your article to fit in a square of 50x50. Define the following transformation in your config.yml :
 
 ``` yml
-jb_phumbor:
+webfactory_phumbor:
     transformations:
         article_list:
             fit_in: { width: 50, height: 50 }
@@ -62,14 +44,18 @@ Now you can use it in twig :
 {{ thumbor(<the absolute url of your image>, 'article_list') }}
 ```
 
-Documentation
--------------
+## Documentation
 
 * [Configuration Reference](Resources/doc/reference.md)
 * [Service](Resources/doc/service.md)
 * [Twig Helper](Resources/doc/twig_helper.md)
 
-License
--------
+## Credits, Copyright and License
 
-MIT - see [LICENSE](LICENSE)
+This bundle was first written by [jbouzekri](https://github.com/jbouzekri). webfactory
+made contributions previously and forked the project in 2022.
+
+- <https://www.webfactory.de>
+- <https://twitter.com/webfactory>
+
+Copyright starting 2022 – webfactory GmbH, Bonn. Code released under [the MIT license](LICENSE).

@@ -1,9 +1,9 @@
 <?php
 
-namespace Jb\Bundle\PhumborBundle\Tests\Twig;
+namespace Webfactory\Bundle\PhumborBundle\Tests\Twig;
 
-use Jb\Bundle\PhumborBundle\Twig\PhumborExtension;
-use Jb\Bundle\PhumborBundle\Transformer\BaseTransformer;
+use Webfactory\Bundle\PhumborBundle\Twig\PhumborExtension;
+use Webfactory\Bundle\PhumborBundle\Transformer\BaseTransformer;
 use PHPUnit\Framework\TestCase;
 use Thumbor\Url\BuilderFactory;
 
@@ -15,7 +15,7 @@ use Thumbor\Url\BuilderFactory;
 class PhumborExtensionTest extends TestCase
 {
     /**
-     * @var \Jb\Bundle\PhumborBundle\Twig\PhumborExtension
+     * @var \Webfactory\Bundle\PhumborBundle\Twig\PhumborExtension
      */
     private $extension;
 

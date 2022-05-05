@@ -1,6 +1,6 @@
 <?php
 
-namespace Jb\Bundle\PhumborBundle\Transformer;
+namespace Webfactory\Bundle\PhumborBundle\Transformer;
 
 use Thumbor\Url\BuilderFactory;
 use Thumbor\Url\Builder;
@@ -65,7 +65,7 @@ class BaseTransformer
      *
      * @return \Thumbor\Url\Builder
      *
-     * @throws \Jb\Bundle\PhumborBundle\Transformer\Exception\UnknownTransformationException
+     * @throws \Webfactory\Bundle\PhumborBundle\Transformer\Exception\UnknownTransformationException
      */
     public function transform($orig, $transformation = null, $overrides = array())
     {

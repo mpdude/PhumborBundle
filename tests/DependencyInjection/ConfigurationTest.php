@@ -1,8 +1,8 @@
 <?php
 
-namespace Jb\Bundle\PhumborBundle\Tests\DependencyInjection;
+namespace Webfactory\Bundle\PhumborBundle\Tests\DependencyInjection;
 
-use Jb\Bundle\PhumborBundle\DependencyInjection\Configuration;
+use Webfactory\Bundle\PhumborBundle\DependencyInjection\Configuration;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 use Symfony\Component\Config\Definition\Processor;

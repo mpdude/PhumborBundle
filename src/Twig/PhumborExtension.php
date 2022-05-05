@@ -1,8 +1,8 @@
 <?php
 
-namespace Jb\Bundle\PhumborBundle\Twig;
+namespace Webfactory\Bundle\PhumborBundle\Twig;
 
-use Jb\Bundle\PhumborBundle\Transformer\BaseTransformer;
+use Webfactory\Bundle\PhumborBundle\Transformer\BaseTransformer;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
@@ -15,14 +15,14 @@ use Twig\TwigFunction;
 class PhumborExtension extends AbstractExtension
 {
     /**
-     * @var \Jb\Bundle\PhumborBundle\Transformer\BaseTransformer
+     * @var \Webfactory\Bundle\PhumborBundle\Transformer\BaseTransformer
      */
     protected $transformer;
 
     /**
      * Constructor
      *
-     * @param \Jb\Bundle\PhumborBundle\Transformer\BaseTransformer $transformer
+     * @param \Webfactory\Bundle\PhumborBundle\Transformer\BaseTransformer $transformer
      */
     public function __construct(BaseTransformer $transformer)
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Jb\Bundle\PhumborBundle\DependencyInjection;
+namespace Webfactory\Bundle\PhumborBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;

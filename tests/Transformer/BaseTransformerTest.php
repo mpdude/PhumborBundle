@@ -1,9 +1,9 @@
 <?php
 
-namespace Jb\Bundle\PhumborBundle\Tests\Transformer;
+namespace Webfactory\Bundle\PhumborBundle\Tests\Transformer;
 
-use Jb\Bundle\PhumborBundle\Transformer\BaseTransformer;
-use Jb\Bundle\PhumborBundle\Transformer\Exception\UnknownTransformationException;
+use Webfactory\Bundle\PhumborBundle\Transformer\BaseTransformer;
+use Webfactory\Bundle\PhumborBundle\Transformer\Exception\UnknownTransformationException;
 use PHPUnit\Framework\TestCase;
 use Thumbor\Url\BuilderFactory;
 
@@ -15,7 +15,7 @@ use Thumbor\Url\BuilderFactory;
 class BaseTransformerTest extends TestCase
 {
     /**
-     * @var \Jb\Bundle\PhumborBundle\Transformer\BaseTransformer
+     * @var \Webfactory\Bundle\PhumborBundle\Transformer\BaseTransformer
      */
     private $transformer;
 
