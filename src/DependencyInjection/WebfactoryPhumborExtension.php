@@ -12,7 +12,7 @@ use Symfony\Component\Config\FileLocator;
  *
  * @author Jonathan Bouzekri <jonathan.bouzekri@gmail.com>
  */
-class JbPhumborExtension extends Extension
+class WebfactoryPhumborExtension extends Extension
 {
     /**
      * {@inheritDoc}

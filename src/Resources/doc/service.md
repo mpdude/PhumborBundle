@@ -20,7 +20,7 @@ phumbor.url.transformer
 This service wrapped the BuilderFactory to build a thumbor url where we applied a transformation from the config.yml file.
 
 ``` yml
-jb_phumbor:
+webfactory_phumbor:
     transformations:
         width_50:
             resize: { width: 50, height: 0 }

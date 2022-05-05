@@ -1,4 +1,4 @@
-jb_phumbor:
+webfactory_phumbor:
     server:
         url: http://localhost:8888
         secret: 123456789

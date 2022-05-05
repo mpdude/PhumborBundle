@@ -4,7 +4,7 @@ namespace Webfactory\Bundle\PhumborBundle\Tests\DependencyInjection;
 
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Webfactory\Bundle\PhumborBundle\DependencyInjection\JbPhumborExtension;
+use Webfactory\Bundle\PhumborBundle\DependencyInjection\WebfactoryPhumborExtension;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
 
 /**
@@ -12,7 +12,7 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
  *
  * @author Jonathan Bouzekri <jonathan.bouzekri@gmail.com>
  */
-abstract class JbPhumborExtensionTest extends TestCase
+abstract class WebfactoryPhumborExtensionTest extends TestCase
 {
     /**
      * Defined in children class
@@ -55,17 +55,18 @@ abstract class JbPhumborExtensionTest extends TestCase
 
     /**
      * Register a configuration file
-     * @see \Webfactory\Bundle\PhumborBundle\Tests\DependencyInjection\YamlJbPhumborExtensionTest
      *
      * @param string $file
      * @param array $data
      *
      * @return \Symfony\Component\DependencyInjection\ContainerBuilder
+     * @see \Webfactory\Bundle\PhumborBundle\Tests\DependencyInjection\YamlWebfactoryPhumborExtensionTest
+     *
      */
     protected function createContainerFromFile($file, $data = array())
     {
         $container = $this->createContainer($data);
-        $container->registerExtension(new JbPhumborExtension());
+        $container->registerExtension(new WebfactoryPhumborExtension());
         $this->loadFromFile($container, $file);
 
         $container->getCompilerPassConfig()->setOptimizationPasses(array());

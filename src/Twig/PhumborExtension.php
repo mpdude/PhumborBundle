@@ -7,31 +7,18 @@ use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
 
-/**
- * Description of PhumborExtension
- *
- * @author jobou
- */
 class PhumborExtension extends AbstractExtension
 {
     /**
-     * @var \Webfactory\Bundle\PhumborBundle\Transformer\BaseTransformer
+     * @var BaseTransformer
      */
-    protected $transformer;
+    private $transformer;
 
-    /**
-     * Constructor
-     *
-     * @param \Webfactory\Bundle\PhumborBundle\Transformer\BaseTransformer $transformer
-     */
     public function __construct(BaseTransformer $transformer)
     {
         $this->transformer = $transformer;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getFilters()
     {
         return array(
@@ -39,9 +26,6 @@ class PhumborExtension extends AbstractExtension
         );
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getFunctions()
     {
         return array(
@@ -49,16 +33,7 @@ class PhumborExtension extends AbstractExtension
         );
     }
 
-    /**
-     * Twig thumbor filter
-     *
-     * @param string $orig
-     * @param string $transformation
-     * @param array $overrides
-     *
-     * @return string
-     */
-    public function transform($orig, $transformation = null, $overrides = array())
+    public function transform(string $orig, string $transformation = null, array $overrides = array()): string
     {
         return $this->transformer->transform($orig, $transformation, $overrides);
     }

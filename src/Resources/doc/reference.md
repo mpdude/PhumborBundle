@@ -7,7 +7,7 @@ General
 Overview general of all configuration.
 
 ``` yml
-jb_phumbor:
+webfactory_phumbor:
     server:
         url: http://localhost:80
         secret: ""
@@ -53,7 +53,7 @@ Trim surrounding space from the thumbnail. The top-left corner of the image is a
 To specify otherwise, pass either 'top-left' or 'bottom-right'.
 
 ``` yml
-jb_phumbor:
+webfactory_phumbor:
     transformations:
         transformation_name:
             trim: true
@@ -65,7 +65,7 @@ transformations.&lt;transformation_name&gt;.crop
 Manually specify crop window
 
 ``` yml
-jb_phumbor:
+webfactory_phumbor:
     transformations:
         transformation_name:
             crop:
@@ -81,7 +81,7 @@ transformations.&lt;transformation_name&gt;.fit_in
 Resize the image to fit in a box of the specified dimensions.
 
 ``` yml
-jb_phumbor:
+webfactory_phumbor:
     transformations:
         transformation_name:
             fit_in:
@@ -98,7 +98,7 @@ Resize the image to the specified dimensions. Overrides any previous call to `fi
 Use a value of 0 for proportional resizing.
 
 ``` yml
-jb_phumbor:
+webfactory_phumbor:
     transformations:
         transformation_name:
             resize:
@@ -114,7 +114,7 @@ transformations.&lt;transformation_name&gt;.halign
 Specify horizontal alignment used if width is altered due to cropping. Choose on of the following value : 'left', 'center', 'right'
 
 ``` yml
-jb_phumbor:
+webfactory_phumbor:
     transformations:
         transformation_name:
             halign: center
@@ -127,7 +127,7 @@ Specify horizontal alignment used if width is altered due to cropping. Choose on
 Specify vertical alignment used if height is altered due to cropping. Choose on of the following value : 'top', 'middle', 'bottom'
 
 ``` yml
-jb_phumbor:
+webfactory_phumbor:
     transformations:
         transformation_name:
             valign: middle
@@ -139,7 +139,7 @@ transformations.&lt;transformation_name&gt;.smart_crop
 Specify that smart cropping should be used (overrides halign/valign).
 
 ``` yml
-jb_phumbor:
+webfactory_phumbor:
     transformations:
         transformation_name:
             smart_crop: true
@@ -151,7 +151,7 @@ transformations.&lt;transformation_name&gt;.metadata_only
 Specify that JSON metadata should be returned instead of the thumbnailed.
 
 ``` yml
-jb_phumbor:
+webfactory_phumbor:
     transformations:
         transformation_name:
             metadata_only: true
@@ -165,7 +165,7 @@ The filter must be defined with an array with key name and arguments.
 arguments can be an array if the filter needs it
 
 ``` yml
-jb_phumbor:
+webfactory_phumbor:
     transformations:
         transformation_name:
             filters:

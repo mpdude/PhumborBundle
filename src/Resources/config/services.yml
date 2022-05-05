@@ -1,34 +1,19 @@
-parameters:
-    phumbor.url.builder_factory.class: Thumbor\Url\BuilderFactory
-    phumbor.url.transformer.class: Webfactory\Bundle\PhumborBundle\Transformer\BaseTransformer
-    phumbor.twig.extension.class: Webfactory\Bundle\PhumborBundle\Twig\PhumborExtension
-
 services:
     Thumbor\Url\BuilderFactory:
-        class: '%phumbor.url.builder_factory.class%'
+        class: 'Thumbor\Url\BuilderFactory'
         arguments:
             - '%phumbor.server.url%'
             - '%phumbor.secret%'
 
     Webfactory\Bundle\PhumborBundle\Transformer\BaseTransformer:
-        class: '%phumbor.url.transformer.class%'
+        class: 'Webfactory\Bundle\PhumborBundle\Transformer\BaseTransformer'
         arguments:
             - '@Thumbor\Url\BuilderFactory'
             - '%phumbor.transformations%'
 
     Webfactory\Bundle\PhumborBundle\Twig\PhumborExtension:
-        class: '%phumbor.twig.extension.class%'
+        class: 'Webfactory\Bundle\PhumborBundle\Twig\PhumborExtension'
         arguments:
             - '@Webfactory\Bundle\PhumborBundle\Transformer\BaseTransformer'
         tags:
             - { name: twig.extension }
-
-    # Service aliases for BC:
-    phumbor.url.builder_factory:
-        alias: Thumbor\Url\BuilderFactory
-
-    phumbor.url.transformer:
-        alias: Webfactory\Bundle\PhumborBundle\Transformer\BaseTransformer
-
-    phumbor.twig.extension:
-        alias: Webfactory\Bundle\PhumborBundle\Twig\PhumborExtension
