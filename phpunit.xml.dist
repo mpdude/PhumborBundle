@@ -9,7 +9,6 @@
          stopOnFailure="false"
          bootstrap="vendor/autoload.php"
 >
-
     <testsuites>
         <testsuite name="TestBundle Test Suite">
             <directory>tests</directory>
@@ -20,4 +19,7 @@
             <directory suffix=".php">src</directory>
         </whitelist>
     </filter>
+    <listeners>
+        <listener class="\Symfony\Bridge\PhpUnit\SymfonyTestsListener" />
+    </listeners>
 </phpunit>
