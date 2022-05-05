@@ -2,13 +2,13 @@
 
 namespace Webfactory\Bundle\PhumborBundle\Tests\Twig;
 
-use Webfactory\Bundle\PhumborBundle\Twig\PhumborExtension;
-use Webfactory\Bundle\PhumborBundle\Transformer\BaseTransformer;
 use PHPUnit\Framework\TestCase;
 use Thumbor\Url\BuilderFactory;
+use Webfactory\Bundle\PhumborBundle\Transformer\BaseTransformer;
+use Webfactory\Bundle\PhumborBundle\Twig\PhumborExtension;
 
 /**
- * Description of PhumborExtensionTest
+ * Description of PhumborExtensionTest.
  *
  * @author jobou
  */
@@ -25,42 +25,48 @@ class PhumborExtensionTest extends TestCase
     private $factory;
 
     /**
-     * SetUp
+     * SetUp.
      */
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->factory = new BuilderFactory('http://localhost', '123456789');
         $transformer = new BaseTransformer(
             $this->factory,
-            array(
-                'width_50' => array(
-                    'resize' => array('width'=>50, 'height'=>0)
-                )
-            )
+            [
+                'width_50' => [
+                    'resize' => ['width' => 50, 'height' => 0],
+                ],
+            ]
         );
         $this->extension = new PhumborExtension($transformer);
     }
 
     /**
-     * Test twig getFilters
+     * Test twig getFilters.
+     *
+     * @test
      */
-    public function testGetFilters()
+    public function getFilters()
     {
-        $this->assertEquals(count($this->extension->getFilters()), 1);
+        $this->assertEquals(\count($this->extension->getFilters()), 1);
     }
 
     /**
-     * Test twig getFunctions
+     * Test twig getFunctions.
+     *
+     * @test
      */
-    public function testGetFunctions()
+    public function getFunctions()
     {
-        $this->assertEquals(count($this->extension->getFunctions()), 1);
+        $this->assertEquals(\count($this->extension->getFunctions()), 1);
     }
 
     /**
-     * Test twig get filters
+     * Test twig get filters.
+     *
+     * @test
      */
-    public function testTransform()
+    public function transform()
     {
         $transformedUrl = $this->extension->transform('logo.png', 'width_50');
         $builtUrl = $this->factory->url('logo.png')->resize(50, 0);

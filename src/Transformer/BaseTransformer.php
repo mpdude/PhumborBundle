@@ -2,22 +2,22 @@
 
 namespace Webfactory\Bundle\PhumborBundle\Transformer;
 
-use Thumbor\Url\BuilderFactory;
 use Thumbor\Url\Builder;
+use Thumbor\Url\BuilderFactory;
 
 /**
- * Description of BaseTransformer
+ * Description of BaseTransformer.
  *
  * @author jobou
  */
 class BaseTransformer
 {
     /**
-     * Method name for each operation
+     * Method name for each operation.
      *
      * @var array
      */
-    protected static $filterMethod = array(
+    protected static $filterMethod = [
         'trim' => 'trim',
         'crop' => 'crop',
         'fit_in' => 'fitIn',
@@ -27,18 +27,18 @@ class BaseTransformer
         'valign' => 'valign',
         'smart_crop' => 'smartCrop',
         'metadata_only' => 'metadataOnly',
-        'filters' => 'filters'
-    );
+        'filters' => 'filters',
+    ];
 
     /**
-     * Phumbor Builder Factory
+     * Phumbor Builder Factory.
      *
      * @var BuilderFactory
      */
     protected $factory;
 
     /**
-     * The configured transformations
+     * The configured transformations.
      *
      * @var array
      */
@@ -51,33 +51,30 @@ class BaseTransformer
     }
 
     /**
-     * Transform an url or path for thumbor
+     * Transform an url or path for thumbor.
      *
-     * @param string $orig the original url or path
+     * @param string $orig           the original url or path
      * @param string $transformation the name of the transformation to apply to the original image
-     * @param array $overrides an array of additionnal filters to override the ones from the transformation
+     * @param array  $overrides      an array of additionnal filters to override the ones from the transformation
      *
      * @return \Thumbor\Url\Builder
      *
      * @throws \Webfactory\Bundle\PhumborBundle\Transformer\Exception\UnknownTransformationException
      */
-    public function transform($orig, $transformation = null, $overrides = array())
+    public function transform($orig, $transformation = null, $overrides = [])
     {
         $url = $this->factory->url($orig);
-        if (is_null($transformation) && count($overrides) == 0) {
+        if (null === $transformation && 0 == \count($overrides)) {
             return $url;
         }
 
         // Check if a transformation is given without overrides
-        if (!isset($this->transformations[$transformation]) && count($overrides) == 0) {
-            throw new Exception\UnknownTransformationException(
-                "Unknown transformation $transformation. Use on of "
-                . "the following ".implode(', ', array_keys($this->transformations))
-            );
+        if (!isset($this->transformations[$transformation]) && 0 == \count($overrides)) {
+            throw new Exception\UnknownTransformationException("Unknown transformation $transformation. Use on of ".'the following '.implode(', ', array_keys($this->transformations)));
         }
 
         // Override transformation configuration with custom values
-        $configuration = array();
+        $configuration = [];
         if (isset($this->transformations[$transformation])) {
             $configuration = $this->transformations[$transformation];
         }
@@ -93,23 +90,21 @@ class BaseTransformer
     }
 
     /**
-     * Apply trim filter
+     * Apply trim filter.
      *
-     * @param \Thumbor\Url\Builder $url
      * @param bool|string $args
      *
      * @return void
      */
     protected function trim(Builder $url, $args)
     {
-        $args = (is_string($args)) ? $args : null;
+        $args = (\is_string($args)) ? $args : null;
         $url->trim($args);
     }
 
     /**
-     * Apply resize filter
+     * Apply resize filter.
      *
-     * @param \Thumbor\Url\Builder $url
      * @param array $args
      *
      * @return void
@@ -120,9 +115,8 @@ class BaseTransformer
     }
 
     /**
-     * Apply crop filter
+     * Apply crop filter.
      *
-     * @param \Thumbor\Url\Builder $url
      * @param array $args
      *
      * @return void
@@ -133,9 +127,8 @@ class BaseTransformer
     }
 
     /**
-     * Apply fitIn filter
+     * Apply fitIn filter.
      *
-     * @param \Thumbor\Url\Builder $url
      * @param array $args
      *
      * @return void
@@ -146,9 +139,8 @@ class BaseTransformer
     }
 
     /**
-     * Apply fullFitIn filter
+     * Apply fullFitIn filter.
      *
-     * @param \Thumbor\Url\Builder $url
      * @param array $args
      *
      * @return void
@@ -159,9 +151,8 @@ class BaseTransformer
     }
 
     /**
-     * Apply halign filter
+     * Apply halign filter.
      *
-     * @param \Thumbor\Url\Builder $url
      * @param array $args
      *
      * @return void
@@ -172,9 +163,8 @@ class BaseTransformer
     }
 
     /**
-     * Apply valign filter
+     * Apply valign filter.
      *
-     * @param \Thumbor\Url\Builder $url
      * @param array $args
      *
      * @return void
@@ -185,9 +175,8 @@ class BaseTransformer
     }
 
     /**
-     * Apply smartCrop filter
+     * Apply smartCrop filter.
      *
-     * @param \Thumbor\Url\Builder $url
      * @param array $args
      *
      * @return void
@@ -198,9 +187,8 @@ class BaseTransformer
     }
 
     /**
-     * Request metadata endpoint
+     * Request metadata endpoint.
      *
-     * @param \Thumbor\Url\Builder $url
      * @param array $args
      *
      * @return void
@@ -211,9 +199,8 @@ class BaseTransformer
     }
 
     /**
-     * Apply filters
+     * Apply filters.
      *
-     * @param \Thumbor\Url\Builder $url
      * @param array $args
      *
      * @return void
@@ -221,17 +208,15 @@ class BaseTransformer
     protected function filters(Builder $url, $args)
     {
         foreach ($args as $arg) {
-            $arguments = (is_array($arg['arguments'])) ? $arg['arguments'] : array($arg['arguments']);
+            $arguments = (\is_array($arg['arguments'])) ? $arg['arguments'] : [$arg['arguments']];
             array_unshift($arguments, $arg['name']);
-            call_user_func_array(array($url, 'addFilter'), $arguments);
+            \call_user_func_array([$url, 'addFilter'], $arguments);
         }
     }
 
     /**
-    * Setter allowing for factory override
-    *
-    * @param \Thumbor\Url\BuilderFactory $factory
-    */
+     * Setter allowing for factory override.
+     */
     public function setFactory(BuilderFactory $factory)
     {
         $this->factory = $factory;

@@ -2,9 +2,9 @@
 
 namespace Webfactory\Bundle\PhumborBundle\DependencyInjection;
 
+use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
-use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\HttpKernel\Kernel;
 
 /**
@@ -26,7 +26,7 @@ class Configuration implements ConfigurationInterface
             $treeBuilder = new TreeBuilder();
             $rootNode = $treeBuilder->root('webfactory_phumbor');
         }
-        
+
         $rootNode
             ->children()
                 ->arrayNode('server')
@@ -48,13 +48,13 @@ class Configuration implements ConfigurationInterface
     }
 
     /**
-     * Add the transformation section configuration structure
+     * Add the transformation section configuration structure.
      */
     private function addTransformationSection(ArrayNodeDefinition $rootNode)
     {
         // Resize validate function. Resize value are int >= 0 or the string "orig"
         $validateResize = function ($v) {
-            return $v !== "orig" && !is_int($v);
+            return 'orig' !== $v && !\is_int($v);
         };
 
         $rootNode
@@ -104,7 +104,7 @@ class Configuration implements ConfigurationInterface
                                             ->ifTrue($validateResize)
                                             ->thenInvalid(
                                                 'Invalid transformation.resize.width value %s. '
-                                                . 'It must be an integer or the string "orig"'
+                                                .'It must be an integer or the string "orig"'
                                             )
                                         ->end()
                                     ->end()
@@ -114,7 +114,7 @@ class Configuration implements ConfigurationInterface
                                             ->ifTrue($validateResize)
                                             ->thenInvalid(
                                                 'Invalid transformation.resize.height value %s. '
-                                                . 'It must be an integer or the string "orig"'
+                                                .'It must be an integer or the string "orig"'
                                             )
                                         ->end()
                                     ->end()
@@ -122,19 +122,19 @@ class Configuration implements ConfigurationInterface
                             ->end()
                             ->scalarNode('halign')
                                 ->validate()
-                                    ->ifNotInArray(array('left', 'center', 'right'))
+                                    ->ifNotInArray(['left', 'center', 'right'])
                                     ->thenInvalid(
                                         'Invalid transformation.halign value %s. '
-                                        . 'It must be one of the following : left, center, right.'
+                                        .'It must be one of the following : left, center, right.'
                                     )
                                 ->end()
                             ->end()
                             ->scalarNode('valign')
                                 ->validate()
-                                    ->ifNotInArray(array('top', 'middle', 'bottom'))
+                                    ->ifNotInArray(['top', 'middle', 'bottom'])
                                     ->thenInvalid(
                                         'Invalid transformation.valign value %s. '
-                                        . 'It must be one of the following : top, middle, bottom.'
+                                        .'It must be one of the following : top, middle, bottom.'
                                     )
                                 ->end()
                             ->end()

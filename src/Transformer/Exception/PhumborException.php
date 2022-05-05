@@ -3,7 +3,7 @@
 namespace Webfactory\Bundle\PhumborBundle\Transformer\Exception;
 
 /**
- * Phumbor Base Exception
+ * Phumbor Base Exception.
  *
  * @author jobou
  */

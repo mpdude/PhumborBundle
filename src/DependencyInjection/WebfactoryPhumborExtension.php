@@ -2,13 +2,13 @@
 
 namespace Webfactory\Bundle\PhumborBundle\DependencyInjection;
 
+use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
-use Symfony\Component\Config\FileLocator;
 
 /**
- * PhumborBundle extension
+ * PhumborBundle extension.
  *
  * @author Jonathan Bouzekri <jonathan.bouzekri@gmail.com>
  */
@@ -27,10 +27,7 @@ class WebfactoryPhumborExtension extends Extension
     }
 
     /**
-     * Load configuration
-     *
-     * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
-     * @param array $config
+     * Load configuration.
      */
     protected function loadConfiguration(ContainerBuilder $container, array $config): void
     {

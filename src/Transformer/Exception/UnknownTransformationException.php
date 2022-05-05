@@ -3,7 +3,7 @@
 namespace Webfactory\Bundle\PhumborBundle\Transformer\Exception;
 
 /**
- * Exception thrown when the transformation is unknown
+ * Exception thrown when the transformation is unknown.
  *
  * @author jobou
  */

@@ -2,10 +2,10 @@
 
 namespace Webfactory\Bundle\PhumborBundle\Twig;
 
-use Webfactory\Bundle\PhumborBundle\Transformer\BaseTransformer;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
+use Webfactory\Bundle\PhumborBundle\Transformer\BaseTransformer;
 
 class PhumborExtension extends AbstractExtension
 {
@@ -21,19 +21,19 @@ class PhumborExtension extends AbstractExtension
 
     public function getFilters(): array
     {
-        return array(
-            new TwigFilter('thumbor', array($this, 'transform')),
-        );
+        return [
+            new TwigFilter('thumbor', [$this, 'transform']),
+        ];
     }
 
     public function getFunctions(): array
     {
-        return array(
-            new TwigFunction('thumbor', array($this, 'transform')),
-        );
+        return [
+            new TwigFunction('thumbor', [$this, 'transform']),
+        ];
     }
 
-    public function transform(string $orig, string $transformation = null, array $overrides = array()): string
+    public function transform(string $orig, string $transformation = null, array $overrides = []): string
     {
         return $this->transformer->transform($orig, $transformation, $overrides);
     }

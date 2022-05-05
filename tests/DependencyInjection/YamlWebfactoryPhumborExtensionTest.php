@@ -2,13 +2,12 @@
 
 namespace Webfactory\Bundle\PhumborBundle\Tests\DependencyInjection;
 
-use PHPUnit\Framework\TestCase;
+use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
-use Symfony\Component\Config\FileLocator;
 
 /**
- * Test Extension with yaml loading
+ * Test Extension with yaml loading.
  *
  * @author Jonathan Bouzekri <jonathan.bouzekri@gmail.com>
  */
