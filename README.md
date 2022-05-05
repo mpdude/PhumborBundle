@@ -2,6 +2,7 @@ PhumborBundle
 =============
 
 A Symfony Bundle to use the [PHP Thumbor client](https://github.com/webfactory/phumbor) to generate Thumbor URLs in Symfony Twig templates. 
+
 Forked from https://github.com/jbouzekri/PhumborBundle.
 
 ## Prerequisites
@@ -9,7 +10,6 @@ Forked from https://github.com/jbouzekri/PhumborBundle.
 Of course, you must have a [Thumbor server](https://github.com/thumbor/thumbor/wiki) installed and operational.
 
 ## Installation
-------------
 
 Add `webfactory/phumbor-bundle` as a dependency in `composer.json`. Then, enable register the `Webfactory\Bundle\PhumborBundle\WebfactoryPhumborBundle`
 class in your Symfony Kernel.
@@ -26,8 +26,7 @@ webfactory_phumbor:
 Alternatively, you can also set the environment variables `THUMBOR_URL` and `THUMBOR_SECURITY_KEY` for these two settings, for example from your `.env`
 file or from inside your webserver configuration.
 
-Quick use case
---------------
+## Quick use case
 
 You need to resize the image of your article to fit in a square of 50x50. Define the following transformation in your config.yml :
 
